@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import CourseDetail from './course_detail';
-import '../../imports/collections/courses';
+import { Courses } from '../../imports/collections/courses';
 
 const PER_PAGE = 20;
 
@@ -42,7 +42,7 @@ class CourseResults extends Component {
 
 export default withTracker(() => {
   // set up subscription
-  Meteor.subscribe('courses', PER_PAGE);
+  Meteor.subscribe('courses');
 
   // return an object. Whatever we return will be sent to CourseResults
   // as props

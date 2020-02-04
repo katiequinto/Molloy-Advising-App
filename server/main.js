@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import '../imports/collections/courses.js';
 
 //console.log(process.env);
-//process.env.MONGO_URL="mongodb://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net:27017/admin"
+//process.env.MONGO_URL="mongodb+srv://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net/test?retryWrites=true&w=majority"
 /*
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net/test?retryWrites=true&w=majority";
