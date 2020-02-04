@@ -1,6 +1,19 @@
 import { Meteor } from 'meteor/meteor';
 import '../imports/collections/courses.js';
 
+//console.log(process.env);
+//process.env.MONGO_URL="mongodb://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net:27017/admin"
+/*
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("molloyAdvising").collection("courses");
+  // perform actions on the collection object
+  client.close();
+});
+*/
+
 
 Meteor.startup(() => {
 

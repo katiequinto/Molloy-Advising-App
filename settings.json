@@ -1,0 +1,7 @@
+{
+  "localhost": {
+    "env": {
+      "MONGO_URL": "mongodb://rich:7EhJM7hnV6dAPgwN@advisingmolloydb-b0iqm.mongodb.net:27017/molloyAdvising"
+    }
+  }
+}

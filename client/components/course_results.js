@@ -44,7 +44,7 @@ export default withTracker(() => {
   // set up subscription
   Meteor.subscribe('courses', PER_PAGE);
 
-  // return an object. Whatever we return will be sent to EmployeeList
+  // return an object. Whatever we return will be sent to CourseResults
   // as props
   return { courses: Courses.find({}).fetch() };
 }) (CourseResults);
