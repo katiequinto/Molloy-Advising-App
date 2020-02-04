@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import CourseDetail from './course_detail';
-import { Courses } from '../../imports/collections/courses';
+import '../../imports/collections/courses';
 
 const PER_PAGE = 20;
 
