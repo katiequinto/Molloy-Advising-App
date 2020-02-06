@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import CourseDetail from './course_detail';
 import { Courses } from '../../imports/collections/courses';
+import { Checkbox } from '@material-ui/core';
 
 const PER_PAGE = 20;
 
@@ -15,25 +15,46 @@ class CourseResults extends Component {
 
   }
 
+  renderRows() {
+    return this.props.courses.map(course => {
+      const { _id, course_id, code, course_Name, course_Description } = course;
+
+      return (
+        <tr key={_id}>
+          <td>{code}</td>
+          <td>{course_id}</td>
+          <td>{course_Name}</td>
+          <td>{course_Description}</td>
+          <td className="checkbox"><Checkbox /></td>
+        </tr>
+      )
+    })
+  }
+
   render() {
     return (
-
       <div>
         <table id="courseResultsTable">
-          <div>
-            <tr>
-              <td><label>ID</label></td>
-              <td><label>Code</label></td>
-              <td><label>Name</label></td>
-              <td><label>Description</label></td>
-            </tr>
+            <thead>
+              <tr>
+                <td><label>ID</label></td>
+                <td><label>Code</label></td>
+                <td><label>Name</label></td>
+                <td><label>Description</label></td>
+                <td>Select</td>
+              </tr>
+            </thead>
+            <tbody>
+              {this.renderRows()}
+            </tbody>
+            {/*
             <div className="course-list">
               {this.props.courses.map(course =>
                 <CourseDetail key={course._id} course={course} />)}
             </div>
-          </div>
+            */}
         </table>
-        <button id="addButton" className="btn"
+        <button id="addButton" className="pageBtn"
         onClick={this.handleButtonClick}>Confirm</button>
       </div>
     )

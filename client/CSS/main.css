@@ -99,7 +99,7 @@ td, th {
     width:              39.5%;
 }
 
-.btn {
+.pageBtn {
     font-family:        hiragino sans, helvetica, swiss, arial, sans-serif;
     background-color:   #8f0000;
     border:             none;
@@ -110,7 +110,7 @@ td, th {
     float:              right;
 }
 
-.btn:hover {
+.pageBtn:hover {
     opacity:            75%;
 }
 

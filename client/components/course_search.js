@@ -8,6 +8,7 @@ const CourseSearch = () => {
     return(
       <div>
     <table id="courseSearchTable">
+      <tbody>
               <tr>
                   <td className="cstTitle"><label>Term :</label></td>
                   <td>
@@ -94,9 +95,10 @@ const CourseSearch = () => {
                       <input type="text" className="cstInput" />
                   </td>
               </tr>
+          </tbody>
     </table>
       <p>
-          <input id="submitButton" className="btn" type="submit" />
+          <input id="submitButton" className="pageBtn" type="submit" />
       </p>
     </div>
     )
