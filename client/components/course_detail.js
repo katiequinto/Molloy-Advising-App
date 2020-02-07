@@ -5,15 +5,12 @@ const CourseDetail = ({ course }) => {
   const { _id, course_id, code, course_Name, course_Description } = course;
 
   return (
-    <div>
       <tr>
-        <td><label className="code">{code}</label></td>
-        <td><label className="courseId">{course_id}</label></td>
+        <td><label className="code">{code}{course_id}</label></td>
         <td><label className="courseName">{course_Name}</label></td>
         <td><label className="courseDescription">{course_Description}</label></td>
         <td className="checkbox"><Checkbox /></td>
       </tr>
-    </div>
   );
 };
 
