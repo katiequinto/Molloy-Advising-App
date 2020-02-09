@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+import CourseResults from './course_results';
 import '../CSS/main';
 import '../CSS/media';
 import '../CSS/login';
 import '../CSS/logout';
 
-const CourseSearch = () => {
+class CourseSearch extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isResultsVisible: false
+    };
+  }
+
+  render() {
     return(
       <div>
     <table id="courseSearchTable">
@@ -97,11 +108,19 @@ const CourseSearch = () => {
               </tr>
           </tbody>
     </table>
-      <p>
-          <input id="submitButton" className="pageBtn" type="submit" />
-      </p>
+      <div className="searchButtonDiv">
+          <Button
+          id="submitButton"
+          variant="contained"
+          color="primary"
+          onClick={() => this.setState({ isResultsVisible: true })}>
+          Search
+          </Button>
+      </div>
+      { this.state.isResultsVisible ? <CourseResults /> : null }
     </div>
     )
+  }
   }
 
 

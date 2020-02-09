@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import CourseDetail from './course_detail';
 import { Courses } from '../../imports/collections/courses';
-import { Checkbox } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 const PER_PAGE = 20;
 
@@ -33,8 +33,6 @@ class CourseResults extends Component {
               <CourseDetail key={course._id} course={course} />)}
             </tbody>
         </table>
-        <button id="addButton" className="pageBtn"
-        onClick={this.handleButtonClick}>Confirm</button>
       </div>
     )
   }
