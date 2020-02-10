@@ -12,10 +12,6 @@ class CourseResults extends Component {
     this.addedCourses = [];
   }
 
-  handleButtonClick() {
-
-  }
-
   render() {
     return (
       <div>

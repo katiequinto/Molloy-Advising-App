@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { withTracker } from 'meteor/react-meteor-data';
 import Button from '@material-ui/core/Button';
 import CourseResults from './course_results';
+import { Subjects } from '../../imports/collections/subjects'
 import '../CSS/main';
 import '../CSS/media';
 import '../CSS/login';
@@ -13,6 +15,16 @@ class CourseSearch extends Component {
     this.state = {
       isResultsVisible: false
     };
+  }
+
+  renderSubjects() {
+    return this.props.subjects.map(subjectInList => {
+      const { _id, subject } = subjectInList;
+
+      return (
+        <option key={subjectInList._id} value={subject}>{subject}</option>
+      )
+    })
   }
 
   render() {
@@ -36,61 +48,8 @@ class CourseSearch extends Component {
                   <td className="cstTitle">Subject :</td>
                   <td>
                       <select className="cstSelect">
-                          <option value="ALL">ALL</option>
-                          <option value="Accounting">Accounting</option>
-                          <option value="American Sign Language">American Sign Language</option>
-                          <option value="Arabic">Arabic</option>
-                          <option value="Art">Art</option>
-                          <option value="Biology">Biology</option>
-                          <option value="Business">Business</option>
-                          <option value="Business Law">Business Law</option>
-                          <option value="Cardiovascular Technology">Cardiovascular Technology</option>
-                          <option value="Chemistry">Chemistry</option>
-                          <option value="Clin Mental Health Counseling">Clin Mental Health Counseling</option>
-                          <option value="Communication Arts">Communication Arts</option>
-                          <option value="Computer Information Systems">Computer Information Systems</option>
-                          <option value="Computer Science">Computer Science</option>
-                          <option value="Core">Core</option>
-                          <option value="Criminal Justice">Criminal Justice</option>
-                          <option value="Earth Science">Earth Science</option>
-                          <option value="Economics">Economics</option>
-                          <option value="Education">Education</option>
-                          <option value="English">English</option>
-                          <option value="English as a Second Language">English as a Second Language</option>
-                          <option value="Environmental Science">Environmental Science</option>
-                          <option value="Ethics">Ethics</option>
-                          <option value="Finance">Finance</option>
-                          <option value="First Year Studies Program">First Year Studies Program</option>
-                          <option value="French">French</option>
-                          <option value="Geography">Geography</option>
-                          <option value="Gerontology">Gerontology</option>
-                          <option value="Health Service Leadership">Health Service Leadership</option>
-                          <option value="History">History</option>
-                          <option value="Honors">Honors</option>
-                          <option value="Interdisciplinary Studies">Interdisciplinary Studies</option>
-                          <option value="Italian">Italian</option>
-                          <option value="Legal Studies">Legal Studies</option>
-                          <option value="Marketing">Marketing</option>
-                          <option value="Mathematics">Mathematics</option>
-                          <option value="Music">Music</option>
-                          <option value="New Media">New Media</option>
-                          <option value="Nuclear Medicine Technology">Nuclear Medicine Technology</option>
-                          <option value="Nursing">Nursing</option>
-                          <option value="Philosophy">Philosophy</option>
-                          <option value="Physical Education">Physical Education</option>
-                          <option value="Physics">Physics</option>
-                          <option value="Political Science">Political Science</option>
-                          <option value="Psychology">Psychology</option>
-                          <option value="Respiratory Care">Respiratory Care</option>
-                          <option value="Social Work">Social Work</option>
-                          <option value="Sociology">Sociology</option>
-                          <option value="Spanish">Spanish</option>
-                          <option value="Speech-Language Pathology/Audi">Speech-Language Pathology/Audi</option>
-                          <option value="St. Thomas Aquinas Program">St. Thomas Aquinas Program</option>
-                          <option value="Study Abroad Program">Study Abroad Program</option>
-                          <option value="Theatre Arts">Theatre Arts</option>
-                          <option value="Theology and Religious Studies">Theology and Religious Studies</option>
-
+                        <option value="ALL">ALL</option>
+                        {this.renderSubjects()}
                       </select>
                   </td>
               </tr>
@@ -123,5 +82,11 @@ class CourseSearch extends Component {
   }
   }
 
+  export default withTracker(() => {
+    // set up subscription
+    Meteor.subscribe('subjects');
 
-export default CourseSearch;
+    // return an object. Whatever we return will be sent to CourseSearch
+    // as props
+    return { subjects: Subjects.find({}).fetch() };
+  }) (CourseSearch);

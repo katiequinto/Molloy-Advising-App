@@ -6,7 +6,7 @@ const CourseDetail = ({ course }) => {
   const { _id, course_id, subject_id, course_Name, course_Description } = course;
 
   return (
-      <tr>
+      <tr key={_id}>
         <td><label className="subjectId">{subject_id}{course_id}</label></td>
         <td><label className="courseName">{course_Name}</label></td>
         <td><label className="courseDescription">{course_Description}</label></td>
