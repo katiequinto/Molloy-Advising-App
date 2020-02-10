@@ -8,7 +8,7 @@ const CourseDetail = ({ course }) => {
     <div>
       <tr>
         <td><label className="courseId">{course_id}</label></td>
-        <td><label className="code">{code}</label></td>
+        <td><label className="code">{subject_id}</label></td>
         <td><label className="courseName">{course_Name}</label></td>
         <td><label className="courseDescription">{course_Description}</label></td>
         <td className="checkbox"><Checkbox /></td>
